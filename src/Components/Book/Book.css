@@ -1,0 +1,14 @@
+.book-container {
+    border-radius: 15px;
+}
+
+.book-img {
+    width: 300px;
+    height: 350px;
+    border-radius: 20px;
+}
+.btn-cart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
