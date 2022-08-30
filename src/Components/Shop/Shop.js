@@ -11,6 +11,10 @@ const Shop = () => {
     // const[]
     const handleAddToCart = (selectedItem) => {
         let newCart = []
+        if (cart.length === 5) {
+            alert('Already added Five Books')
+            return newCart;
+        }
         const exists = cart.find(item => item.id === selectedItem.id)
         if (!exists) {
             newCart = [...cart, selectedItem]
@@ -23,11 +27,10 @@ const Shop = () => {
         setCart(newCart)
     }
 
-    const handleRemoveCart = (id) => {
-        // const updatedCart = cart.filter(item => item.id !== id)
-        // updatedCart.remove()
-        // const newCart = cart.filter(item => item.id !== id)
-       
+    const handleRemoveCart = (selectedItem) => {
+        const restItem = cart.filter(item => item.id !== selectedItem.id)
+        setCart(restItem)
+
     }
 
     //useEffect for load data

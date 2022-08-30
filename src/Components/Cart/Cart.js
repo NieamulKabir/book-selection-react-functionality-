@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from '@fortawesome/free-solid-svg-icons'
 const Cart = (props) => {
     const { cart, handleRemoveCart } = props
-
+ 
     //cart total calculation
     // let total =0
     // for (const item of cart) {
@@ -27,7 +27,7 @@ const Cart = (props) => {
                             {about.name}
 
 
-                            <button onClick={() => handleRemoveCart()} className='ml-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 p-2 text-red-700'>
+                            <button onClick={() => handleRemoveCart(about)} className='ml-2 bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 p-2 text-red-700'>
                                 <FontAwesomeIcon icon={faTrash} />
                             </button>
 
