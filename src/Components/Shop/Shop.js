@@ -15,7 +15,7 @@ const Shop = () => {
         let newCart = []
         
         let exists = cart.find(item => item.id === selectedItem.id)
-        if (cart.length === 5) {
+        if (cart.length === 4) {
             alert('Already added Five Books')
             newCart =[...cart];
         }
