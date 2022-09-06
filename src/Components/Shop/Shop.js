@@ -8,18 +8,22 @@ const Shop = () => {
 
     // for button even handler 
     const [cart, setCart] = useState([])
+    //random
+    const [random, setRandom] = useState(-1);
     // const[]
     const handleAddToCart = (selectedItem) => {
         let newCart = []
+        
+        let exists = cart.find(item => item.id === selectedItem.id)
         if (cart.length === 5) {
             alert('Already added Five Books')
-            return newCart;
+            newCart =[...cart];
         }
-        const exists = cart.find(item => item.id === selectedItem.id)
-        if (!exists) {
+        else if (!exists) {
             newCart = [...cart, selectedItem]
         }
         else {
+            alert("You have already chosen this books");
             let rest = cart.filter(item => item.id !== selectedItem.id)
             rest = newCart
             return rest
@@ -31,6 +35,19 @@ const Shop = () => {
         const restItem = cart.filter(item => item.id !== selectedItem.id)
         setCart(restItem)
 
+    }
+
+    // Function to choose random books from books array
+    const choseRandom =()=>{
+        let random = Math.floor(Math.random()*cart.length);
+        setRandom(random);
+    }
+
+    //function for clear list
+    const clearList = () => {
+        setCart([]);
+        setRandom(-1);
+        
     }
 
     //useEffect for load data
@@ -55,6 +72,9 @@ const Shop = () => {
                     cart={cart}
                     key={cart.id}
                     handleRemoveCart={handleRemoveCart}
+                    choseRandom={choseRandom}
+                    random={random}
+                    clearList={clearList}
                 ></Cart>
             </div>
         </div>
